@@ -53,7 +53,7 @@ public class Emprestimo {
         return codigo;
     }
 
-    public boolean isAberto() {
+    public boolean getAberto() {
         return aberto;
     }
 

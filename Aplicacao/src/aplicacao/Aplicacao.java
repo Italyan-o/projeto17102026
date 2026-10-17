@@ -5,11 +5,6 @@ import java.util.Scanner;
 
 public class Aplicacao {
 
-    public static void main(String[] args) {
-        Aplicacao app = new Aplicacao();
-        app.executar();
-    }
-
     public void executar() {
         Scanner scanner = new Scanner(System.in);
         Biblioteca biblioteca = new Biblioteca();
@@ -187,7 +182,7 @@ public class Aplicacao {
                                 Livro livroEmp = biblioteca.consultarLivro(codEmpLivro);
                                 if (livroEmp == null) {
                                     System.out.println("Registro não encontrado.");
-                                } else if (!livroEmp.isDisponivel()) {
+                                } else if (!livroEmp.getDisponivel()) {
                                     System.out.println("Livro indisponível para empréstimo.");
                                 } else if (livrosEmp.contains(livroEmp)) {
                                     System.out.println("Livro já selecionado neste empréstimo.");

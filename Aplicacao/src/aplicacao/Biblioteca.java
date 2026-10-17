@@ -42,7 +42,7 @@ public class Biblioteca {
             return false;
         }
         for (Emprestimo e : emprestimos) {
-            if (e.getLeitor().getCodigo() == leitor.getCodigo() && e.isAberto()) {
+            if (e.getLeitor().getCodigo() == leitor.getCodigo() && e.getAberto()) {
                 return false;
             }
         }
@@ -83,7 +83,7 @@ public class Biblioteca {
             return false;
         }
         for (Emprestimo e : emprestimos) {
-            if (e.isAberto() && e.contemLivro(livro)) {
+            if (e.getAberto() && e.contemLivro(livro)) {
                 return false;
             }
         }
@@ -107,7 +107,7 @@ public class Biblioteca {
 
         ArrayList<Livro> livrosValidos = new ArrayList<>();
         for (Livro l : livros) {
-            if (l == null || !l.isDisponivel() || livrosValidos.contains(l)) {
+            if (l == null || !l.getDisponivel() || livrosValidos.contains(l)) {
                 return false;
             }
             livrosValidos.add(l);
@@ -134,7 +134,7 @@ public class Biblioteca {
 
     public boolean registrarDevolucao(int codigo) {
         for (Emprestimo e : this.emprestimos) {
-            if (e.getCodigo() == codigo && e.isAberto()) {
+            if (e.getCodigo() == codigo && e.getAberto()) {
                 e.finalizar();
                 return true;
             }
